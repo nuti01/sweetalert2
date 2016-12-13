@@ -1,3 +1,5 @@
+'use strict';
+
 const rollup = require('rollup').rollup
 const babel = require('rollup-plugin-babel')
 const pack = require('../package.json')
@@ -25,6 +27,7 @@ const write = (dest, code) => {
 }
 
 const packageRollup = (options) => {
+  'use strict';
   const moduleId = classify(pack.name)
   return rollup({
     entry: 'src/sweetalert2.js',
@@ -35,6 +38,7 @@ const packageRollup = (options) => {
     ]
   })
   .then((bundle) => {
+      'use strict';
     let code = bundle.generate({
       format: options.format,
       banner: banner,
